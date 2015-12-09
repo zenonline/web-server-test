@@ -10,7 +10,7 @@ var middle_ware = {
 	logger: function (req, res, next){
 		
 		
-		console.log('On '+  new Date().toString() +' via request method:'+req.method+' the page '+req.originalUrl+' was requested');
+		console.log('On '+  new Date().toString() +' via request method:'+req.method+', the page '+req.originalUrl+' was requested');
 		next();
 	}
 }
@@ -18,7 +18,7 @@ app.use(middle_ware.logger);
 //app.use(middle_ware.require_authentication);
 
 app.get('/about', middle_ware.require_authentication, function (req, res) {
-	res.send('the about page');
+	res.send('the about page!');
 });
 
 app.use(express.static(__dirname+"/public"));
